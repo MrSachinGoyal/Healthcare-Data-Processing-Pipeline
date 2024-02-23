@@ -22,7 +22,7 @@ default_args = {
 dag = DAG(
     'health_data_processor_dag',
     default_args=default_args,
-    description='A DAG to process daily healthcare data files and write processed data to snowflake target tables',
+    description='A DAG to process daily healthcare data files and write processed data to GCP BigQuery tables',
     schedule_interval=timedelta(days=1),
     start_date = datetime(2024, 2, 23),
     tags=['example'],
