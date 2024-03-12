@@ -3,6 +3,10 @@
 # Overview
 This repository contains scripts to implement a data processing pipeline for healthcare data using Apache Airflow, PySpark, and Google BigQuery. The pipeline is designed to process daily healthcare data files, perform data validation, consistency checks, data transformations, and load the processed data into BigQuery table. Additionally, it includes SQL queries to analyze the processed data in BigQuery.
 
+# Architecture
+
+![Architecture Diagram](https://github.com/MrSachinGoyal/Healthcare-Data-Processing-Pipeline/raw/master/architecture.png)
+
 # Technologies Used
 This project leverages various technologies to implement a healthcare data processing pipeline:
 
