@@ -18,17 +18,20 @@ This project leverages various technologies to implement a healthcare data proce
   - BigQuery
 - **Apache Spark**
 
-# Project Structure
-- **pyspark_app.py**: PySpark script responsible for processing healthcare data, performing data validation, consistency checks, and data transformations.
-- **airflow_script.py**: Apache Airflow DAG script defining the workflow for the data processing pipeline, including tasks to generate mock health records, submit PySpark job, and archive processed files.
-- **bigquery_sql_queries.sql**: SQL queries for data analysis on the processed healthcare data in Google BigQuery.
+## Dashboard
+![Alt Text](https://github.com/MrSachinGoyal/Healthcare-Data-Processing-Pipeline/blob/master/dashboard.png)
 
 ## Airflow DAG Visualization
 
 ![Airflow DAG](https://github.com/MrSachinGoyal/healthcare_data_processing_pipeline/blob/master/airflow_dag.png?raw=true)
 
-## PySpark Script (`pyspark_app.py`)
+# Project Structure
+- **pyspark_app.py**: PySpark script responsible for processing healthcare data, performing data validation, consistency checks, and data transformations.
+- **airflow_script.py**: Apache Airflow DAG script defining the workflow for the data processing pipeline, including tasks to generate mock health records, submit PySpark job, and archive processed files.
+- **bigquery_sql_queries.sql**: SQL queries for data analysis on the processed healthcare data in Google BigQuery.
+- **Visualization**: Visual representations showcasing insights on gender ratios, diseases, and age distribution per disease, aiding in comprehensive data analysis and understanding of disease demographics.
 
+## PySpark Script (`pyspark_app.py`)
 The `pyspark_app.py` script performs the following tasks:
 
 - Reads daily healthcare data from Google Cloud Storage (GCS).
@@ -37,7 +40,6 @@ The `pyspark_app.py` script performs the following tasks:
 - Writes the processed data to Google BigQuery.
 
 ## Apache Airflow DAG Script (`airflow_script.py`)
-
 The `airflow_script.py` defines an Apache Airflow DAG named `health_data_processor_dag`, which orchestrates the data processing pipeline. It includes the following tasks:
 
 - **Generate Health Records**: Executes a Python function to generate mock health records and upload them to Google Cloud Storage as CSV files.
@@ -45,7 +47,6 @@ The `airflow_script.py` defines an Apache Airflow DAG named `health_data_process
 - **Archive Processed Files**: Moves the processed CSV files from the input folder to an archive folder in Google Cloud Storage.
 
 ## Google BigQuery SQL Queries (`bigquery_sql_queries.sql`)
-
 The `bigquery_sql_queries.sql` file contains SQL queries for analyzing the processed healthcare data stored in Google BigQuery. The queries include:
 
 1. Calculating the gender ratio for each disease.
@@ -54,14 +55,19 @@ The `bigquery_sql_queries.sql` file contains SQL queries for analyzing the proce
 4. Analyzing the number of cases of each disease for each day of the week.
 
 # Prerequisites
-
 Before you begin with the setup, make sure you have the following:
 
 - **Programming Language** : Python 3.1 or higher
-
 - **Google Cloud Platform (GCP) Services**:
    - An active GCP account with the necessary permissions.
      - Google Cloud Storage (GCS): A GCS bucket set up to store input and output data files.
      - Google Dataproc: Access to Google Dataproc service to run Apache Spark jobs.
      - Google BigQuery: Access to Google BigQuery for storing and analyzing processed data.
      - Google Cloud Composer: Google Cloud Composer (managed Apache Airflow service) set up to execute DAGs.
+
+## Key Learnings:
+- **Integration of Technologies**: The project combines Apache Airflow, PySpark, and Google Cloud Platform services to create a comprehensive healthcare data processing pipeline.
+- **Data Processing with PySpark**: PySpark script handles data validation, consistency checks, transformations, and loading into BigQuery, streamlining data processing tasks.
+- **Apache Airflow DAG**: The DAG script defines tasks and dependencies, facilitating controlled execution and monitoring of the pipeline workflow.
+- **BigQuery SQL Queries**: SQL queries extract insights from processed healthcare data in BigQuery, enabling analysis of disease trends, patient demographics, and more..
+  
