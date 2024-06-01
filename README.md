@@ -26,10 +26,10 @@ This project leverages various technologies to implement a healthcare data proce
 ![Airflow DAG](https://github.com/MrSachinGoyal/healthcare_data_processing_pipeline/blob/master/airflow_dag.png?raw=true)
 
 # Project Structure
-- **pyspark_app.py**: PySpark script responsible for processing healthcare data, performing data validation, consistency checks, and data transformations.
 - **airflow_script.py**: Apache Airflow DAG script defining the workflow for the data processing pipeline, including tasks to generate mock health records, submit PySpark job, and archive processed files.
+- **pyspark_app.py**: PySpark script responsible for processing healthcare data, performing data validation, consistency checks, and data transformations.
 - **bigquery_sql_queries.sql**: SQL queries for data analysis on the processed healthcare data in Google BigQuery.
-- **Visualization**: Visual representations showcasing insights on gender ratios, diseases, and age distribution per disease, aiding in comprehensive data analysis and understanding of disease demographics.
+- **Visualization**: Visual representations showcasing insights on gender ratios, diseases aiding in comprehensive data analysis and understanding of disease demographics.
 
 ## PySpark Script (`pyspark_app.py`)
 The `pyspark_app.py` script performs the following tasks:
@@ -37,6 +37,7 @@ The `pyspark_app.py` script performs the following tasks:
 - Reads daily healthcare data from Google Cloud Storage (GCS).
 - Performs data validation and consistency checks on the input data.
 - Performs data transformations, including adding new columns (`age_group`, `is_senior_citizen`, `load_time`) and renaming columns (`diagnosis_description` to `disease`).
+- Cached the DataFrame after removing duplicates to optimize subsequent transformations and actions by keeping it in memory.
 - Writes the processed data to Google BigQuery.
 
 ## Apache Airflow DAG Script (`airflow_script.py`)
